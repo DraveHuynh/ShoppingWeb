@@ -1,0 +1,88 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  padding: 40px 0;
+}
+
+#newAddressForm {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 25px 30px;
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 26px;
+  color: #222;
+  margin-bottom: 25px;
+}
+
+#newAddressForm label {
+  display: block;
+  margin-top: 17px;
+  font-weight: bold;
+  color: #333;
+}
+
+#newAddressForm input[type="text"],
+#newAddressForm select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+#checkout-btn {
+  margin-top: 25px;
+  padding: 12px;
+  width: 100%;
+  background: linear-gradient(145deg, #222, #000);
+  border: none;
+  border-radius: 10px;
+  color: #ffd700; /* vàng kim */
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 transparent;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#checkout-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0)
+  );
+  transform: skewX(-25deg);
+}
+
+#checkout-btn:hover::before {
+  left: 130%;
+  transition: left 0.8s ease-in-out;
+}
+
+#checkout-btn:hover {
+  background: linear-gradient(145deg, #000, #1a1a1a);
+  box-shadow: 0 0 15px 3px rgba(255, 215, 0, 0.5),
+    0 0 5px 2px rgba(255, 215, 0, 0.3) inset;
+}

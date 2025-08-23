@@ -1,0 +1,406 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: Arial, sans-serif;
+  background-color: #e4e4e4;
+}
+
+.menu-bar {
+  width: 200px; /* Chiều rộng cố định của menu */
+  min-width: 200px;
+  height: 100vh; /* Đảm bảo chiều cao của menu bằng chiều cao của cửa sổ */
+  background-color: #333; /* Màu nền của menu */
+  padding-top: 20px; /* Khoảng cách trên cùng của menu */
+  position: relative;
+  overflow-y: auto; /* Thanh cuộn tự động nếu nội dung tràn */
+}
+
+.menu-bar ul {
+  list-style-type: none; /* Xóa bullet trong danh sách */
+  padding-left: 0; /* Xóa khoảng cách trái của danh sách */
+  height: 100%; /* Chiều cao của danh sách bằng với menu-bar */
+  display: flex;
+  flex-direction: column; /* Hiển thị danh sách theo chiều dọc */
+  justify-content: space-between; /* Phân bố đều các mục */
+}
+
+.menu-bar ul li {
+  text-align: center; /* Canh giữa văn bản */
+  margin: 10px 0; /* Khoảng cách giữa các mục menu */
+}
+
+.menu-bar ul li a {
+  text-decoration: none; /* Xóa gạch chân của liên kết */
+  color: rgb(187, 187, 187); /* Màu chữ trắng */
+  display: flex; /* Sử dụng flexbox để canh giữa icon và text */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  justify-content: flex-start; /* Canh văn bản theo chiều ngang */
+  padding: 10px 20px; /* Khoảng cách bên trong giữa nội dung và viền */
+  border-radius: 4px; /* Bo góc cho các mục menu */
+}
+
+.menu-bar ul li a:hover {
+  background-color: #444; /* Thay đổi màu nền khi hover */
+}
+
+.menu-bar .menu.active {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-bar ul li a i {
+  margin-right: 15px; /* Tạo khoảng cách giữa icon và text */
+  font-size: 1.5rem; /* Tăng kích thước của icon để rõ ràng hơn */
+}
+
+.menu-bar ul li form {
+  color: white; /* Màu chữ trắng */
+  display: flex; /* Sử dụng flexbox để canh giữa icon và text */
+  align-items: center; /* Canh giữa theo chiều dọc */
+  justify-content: flex-start; /* Canh văn bản theo chiều ngang */
+  padding: 10px 20px; /* Khoảng cách bên trong giữa nội dung và viền */
+  border-radius: 4px; /* Bo góc cho các mục menu */
+  cursor: pointer;
+}
+
+.menu-bar ul li form:hover {
+  background-color: #444; /* Thay đổi màu nền khi hover */
+}
+
+.menu-bar ul li form input[type="submit"] {
+  border: none;
+  background: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.menu-bar ul li form i {
+  margin-right: 15px; /* Tạo khoảng cách giữa icon và text */
+  font-size: 1.5rem; /* Tăng kích thước của icon để rõ ràng hơn */
+}
+
+.menu-bar .logo {
+  border-bottom: 1px solid #555; /* Viền dưới cho logo */
+  padding-bottom: 20px; /* Khoảng cách dưới logo */
+  display: flex;
+  align-items: flex-end;
+  padding-left: 10px;
+}
+
+.menu-bar .logo .nav-title {
+  color: white;
+  font-size: 30px;
+}
+
+.menu-bar .logout {
+  margin-top: auto; /* Đẩy mục "Log out" xuống cuối thanh menu */
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  margin: 15px;
+  padding: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: rgb(255, 255, 255);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.add {
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.addbtn {
+  background-color: #d4af37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.addbtn:hover {
+  background-color: #af9231;
+}
+
+.add .page table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.page th,
+.page td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center; /* Căn giữa nội dung ô */
+}
+
+.page th {
+  background-color: #d4af37;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.page td {
+  background-color: #f9f9f9;
+}
+
+.page tr:hover td {
+  background-color: #f1f1f1;
+}
+
+.page tr:nth-child(even) td {
+  background-color: #ebebeb;
+}
+
+.page .title th {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Dropdown container */
+.page .dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: center; /* Căn giữa nút Action */
+}
+
+/* Button inside dropdown */
+.page .dropbtn {
+  background-color: #d4af37;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Dropdown content (hidden by default) */
+.page .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 100px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  text-align: center; /* Căn giữa các nút trong dropdown */
+}
+
+/* Dropdown form styling */
+.page .dropdown-content form {
+  margin: 0;
+}
+
+.page .dropdown-content input[type="submit"] {
+  border: none;
+  padding: 10px;
+  margin: 5px 0;
+  width: 100%;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: white;
+}
+
+.page .dropdown-content input[type="submit"]:hover {
+  background-color: #e0e0e0;
+}
+
+/* Show the dropdown menu on hover */
+.page .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change button background color on hover */
+.page .dropdown:hover .dropbtn {
+  background-color: #d4af37;
+}
+
+/* Modal Style */
+.page .modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page .modal-content {
+  background-color: white;
+  margin: 15% auto;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  width: 550px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+}
+
+.page .modal-content h2 {
+  margin-bottom: 20px;
+  color: #d4af37;
+}
+
+.page .modal-content label {
+  font-weight: bold;
+  color: #333;
+}
+
+.page .modal-content input,
+.page .modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.page .modal-content input[type="submit"] {
+  background-color: #d4af37;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.page .modal-content input[type="submit"]:hover {
+  background-color: #af9231;
+}
+
+/* Close Button */
+.page .close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.page .close:hover,
+.page .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.category-container, .order-container, .showHome-container{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.category-container table, .order-container table, .showHome-container table{
+  width: 100%;
+}
+
+.add-category {
+  padding: 20px;
+  border-radius: 10px;
+  width: 550px;
+  max-height: 180px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  font-size: 20px;
+  margin-left: 30px;
+}
+
+.add-category input,
+.add-category select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.add-category input[type="submit"] {
+  background-color: #d4af37;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.add-category input[type="submit"]:hover {
+  background-color: #af9231;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px; /
+}
+
+.product-box {
+  width: 200px;
+  height: 250px;
+  border-radius: 8px;
+  border: 2px solid #d4af37;
+  text-decoration: none;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-box:hover {
+  box-shadow: 12px 12px 12px rgba(0, 0, 0, 0.3), -10px -10px 10px white;
+}
+
+.product-box img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.product-box .product-name {
+  padding: 12px;
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
+
+.banner-item .delete-button {
+  background: linear-gradient(145deg, #ff4e50, #f9d423);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.banner-item .delete-button:hover {
+  background: linear-gradient(145deg, #f44336, #ff9800);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.banner-item .delete-button:active {
+  transform: scale(0.97);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}

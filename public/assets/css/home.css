@@ -1,0 +1,145 @@
+.home .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ccc;
+  width: 100%;
+  aspect-ratio: 1014 / 679;
+  overflow: hidden;
+  position: relative;
+}
+
+.home .swiper-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Chỉnh kích thước & màu mũi tên */
+.home .swiper-button-next,
+.home .swiper-button-prev {
+  color: rgb(255, 255, 255); /* Đổi màu thành đỏ */
+  width: 50px; /* Độ rộng */
+  height: 50px; /* Độ cao */
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Giảm kích thước icon mũi tên */
+.home .swiper-button-next::after,
+.home .swiper-button-prev::after {
+  font-size: 30px; /* Nhỏ hơn mặc định */
+}
+
+/* Đổi màu khi hover */
+.home .swiper-button-next:hover,
+.home .swiper-button-prev:hover {
+  color: #d4af37;
+}
+
+/* Chỉnh kích thước nút tròn */
+.home .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: gray;
+  opacity: 0.5;
+}
+.home .swiper-pagination-bullet-active {
+  background: #d4af37; /* Màu của nút tròn đang được chọn */
+  opacity: 1;
+}
+
+.home .new-product {
+  display: block;
+}
+
+.home .new-product h1 {
+  text-align: center;
+  font-size: 30px;
+  margin: 60px 0 30px 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+.home .new-product h3 {
+  text-align: center;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.home .new-product h3 a {
+  color: #000000;
+}
+
+.home .product-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 1439px) {
+  .home .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .home .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.home .product-box {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+  aspect-ratio: 3.5 / 4.3;
+  color: #000;
+  border: 1px solid black;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+.home .product-box:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+}
+
+.home .product-box img {
+  width: 100%;
+  aspect-ratio: 5.7 / 6;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.home .product-name {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Label HOT */
+.home .label-hot {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e74c3c;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.home .qc {
+  width: 100%;
+  border: 1px solid black;
+  object-fit: cover;
+  margin-bottom: -4px;
+}

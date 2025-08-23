@@ -1,0 +1,221 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.header .navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 40px 0 40px;
+  height: 81px;
+  margin: auto;
+}
+
+.header .nav-left,
+.header .nav-center,
+.header .nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.header .nav-left {
+  flex: 1;
+  gap: 15px;
+}
+
+.header .nav-center {
+  justify-content: center;
+}
+
+.header .nav-center img {
+  width: 100%;
+}
+
+.header .nav-right {
+  flex: 1;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+/* Biểu tượng */
+.header .menu-toggle i {
+  font-size: 50px;
+  cursor: pointer;
+  color: black;
+}
+
+.header .cart-icon i,
+.header .user-icon ion-icon {
+  font-size: 35px;
+  cursor: pointer;
+  color: black;
+}
+
+/* Tìm kiếm */
+.header .search-container {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.header .search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 5px;
+  padding: 6px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.header .search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.header .search-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Dropdown */
+.header .user-menu-wrapper {
+  position: relative;
+}
+
+.header .dropdown-menu-icon {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 999;
+  min-width: 160px;
+}
+
+.header .dropdown-menu-icon a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.header .dropdown-menu-icon a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Sidebar */
+.header .sidebar {
+  position: absolute;
+  top: 81px;
+  left: -250px;
+  width: 220px;
+  height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #ddd;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+.header .sidebar.active {
+  left: 0;
+}
+
+.header .sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header .sidebar li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.header .sidebar li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+}
+
+.header .next-btn {
+  font-weight: bold;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .submenu {
+  display: none;
+}
+
+.header .submenu.active {
+  display: block;
+}
+
+.header .back-btn {
+  font-weight: bold;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header .mobile-search {
+  display: none;
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.header .mobile-search-container {
+  display: flex;
+}
+
+@media (max-width: 818px) {
+  .header .search-container {
+    display: none; /* Ẩn tìm kiếm chính */
+  }
+
+  .header .mobile-search {
+    display: block;
+  }
+
+  .header .search-input {
+    width: 90%;
+    border: none;
+    outline: none;
+    padding: 6px;
+    margin-right: 2px;
+    font-size: 16px;
+  }
+
+  .header .search-btn ion-icon {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 475px) {
+  .header .navbar {
+    height: 70px;
+  }
+
+  .header .sidebar {
+    top: 70px;
+  }
+}

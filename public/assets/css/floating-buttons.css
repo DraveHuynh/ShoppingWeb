@@ -1,0 +1,54 @@
+/* Vị trí cố định cho nhóm nút */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 9999;
+}
+
+/* Nút Zalo hình tròn */
+.floating-buttons .zalo-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0084ff;
+  color: white;
+  width: 60px; /* kích thước lớn hơn cho nút tròn */
+  height: 60px; /* kích thước lớn hơn cho nút tròn */
+  border-radius: 50%;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 24px; /* Cỡ chữ lớn để dễ nhìn */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.floating-buttons .zalo-button:hover {
+  transform: scale(1.1);
+  background-color: #006edc;
+}
+
+/* Nút gọi điện hình tròn */
+.floating-buttons .phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #28a745;
+  color: white;
+  width: 60px; /* Kích thước tròn đồng nhất với Zalo */
+  height: 60px;
+  border-radius: 50%;
+  font-size: 30px; /* Cỡ chữ lớn hơn một chút cho nút gọi */
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.floating-buttons .phone:hover {
+  background-color: #218838;
+  transform: scale(1.1);
+}

@@ -1,0 +1,349 @@
+/* === PRODUCT DETAIL ROOT === */
+.product-detail {
+  font-family: "Helvetica Neue", sans-serif;
+  background-color: #fff;
+  color: #111;
+  padding: 50px 0;
+}
+
+.product-detail .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 50px;
+}
+
+/* === SLIDE AREA === */
+.product-detail .slide {
+  flex: 1;
+  width: 100%;
+  max-width: 600px;
+}
+
+.product-detail .swiper {
+  width: 100%;
+  height: auto;
+}
+
+.product-detail .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-detail .swiper-button-next,
+.product-detail .swiper-button-prev {
+  color: #000;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+.product-detail .swiper-button-next:hover,
+.product-detail .swiper-button-prev:hover {
+  opacity: 1;
+}
+
+/* === CONTENT AREA === */
+.product-detail .content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.product-detail .content h3 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.product-detail .content p {
+  font-size: 18px;
+  color: #666;
+}
+
+.product-detail .content h4 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #000000;
+}
+
+.product-detail .product-options {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* === QUANTITY SELECTOR === */
+.product-detail .quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.product-detail .quantity-selector i {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  transition: background-color 0.2s;
+}
+
+.product-detail .quantity-selector i:hover {
+  box-shadow: 0;
+  color: #000;
+}
+
+.product-detail .quantity-selector input[type="number"] {
+  width: 60px;
+  text-align: center;
+  font-size: 16px;
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* === ADD TO CART BUTTON === */
+.product-detail .add-to-cart {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+  width: 100%;
+  text-decoration: none;
+}
+
+.product-detail .add-to-cart:hover {
+  background-color: #333;
+}
+
+/* === LOGIN POPUP === */
+.product-detail #login-popup {
+  display: none;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  z-index: 1001;
+  text-align: center;
+  max-width: 360px;
+  width: 90%;
+}
+
+.product-detail #login-popup p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.product-detail .login-btn {
+  background-color: #111;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.product-detail #overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 959px) {
+  .product-detail .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 16px;
+  }
+
+  .product-detail .slide,
+  .product-detail .content {
+    flex: 1;
+    max-width: none;
+  }
+
+  .product-detail .content {
+    padding: 0;
+  }
+
+  .product-detail .content h3 {
+    font-size: 26px;
+  }
+
+  .product-detail .content h4 {
+    font-size: 20px;
+  }
+
+  .product-detail .add-to-cart {
+    padding: 12px 0;
+  }
+
+  .product-detail .quantity-selector {
+    justify-content: center;
+  }
+}
+
+/* Định dạng chung cho thông báo */
+.notification {
+  position: fixed;
+  bottom: -100px; /* Ban đầu thông báo nằm ngoài màn hình ở phía dưới */
+  right: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  z-index: 1000;
+  opacity: 0; /* Ban đầu thông báo mờ */
+  transition: opacity 0.8s ease, transform 1s ease; /* Chuyển động mượt mà khi xuất hiện */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng */
+}
+
+/* Thông báo thành công */
+.notification.success {
+  background: linear-gradient(
+    45deg,
+    #28a745,
+    #34d058
+  ); /* Gradient màu xanh lá */
+}
+
+/* Thông báo thất bại */
+.notification.error {
+  background: linear-gradient(45deg, #dc3545, #e74c3c); /* Gradient màu đỏ */
+}
+
+/* Hiệu ứng khi thông báo xuất hiện */
+.notification.show {
+  opacity: 1; /* Đưa opacity về 1 để làm thông báo xuất hiện */
+  bottom: 20px; /* Di chuyển thông báo vào trong màn hình */
+  transform: translateY(-20px); /* Di chuyển từ dưới lên */
+}
+
+/* Hiệu ứng khi thông báo bị ẩn */
+.notification.hide {
+  opacity: 0; /* Làm mờ thông báo */
+  bottom: 20px; /* Di chuyển thông báo ra ngoài màn hình */
+  transform: translateY(20px); /* Di chuyển xuống khi ẩn */
+}
+
+/* 1. Xóa nút tăng/giảm mặc định của input[type="number"] */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: all 0.3s ease;
+}
+
+/* 2. Các icon +, - được bo tròn, có hiệu ứng hover vàng kim */
+.quantity-selector i {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%; /* Bo tròn các icon */
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease; /* Mượt mà hơn */
+}
+
+.quantity-selector i:hover {
+  background-color: #f1c40f; /* Màu vàng metallic khi hover */
+  color: white;
+  transform: scale(1.1); /* Tăng kích thước khi hover */
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5); /* Bóng đổ ánh kim khi hover */
+}
+
+/* 3. Làm mềm mại và hiện đại hơn cho input */
+input[type="number"] {
+  border: 1px solid #ddd;
+  border-radius: 12px; /* Bo góc mềm mại */
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ nhẹ */
+  transition: all 0.3s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #f1c40f; /* Màu viền khi focus bằng vàng metallic */
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Bóng đổ vàng kim khi focus */
+}
+
+/* 4. Căn chỉnh các icon và input cho hợp lý */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.related-products {
+  margin-top: 60px;
+  padding: 0 20px;
+}
+
+.related-products h2 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.related-products .swiper-slide {
+  text-align: center;
+  border: 1px solid #000000;
+  max-width: 300px;
+}
+
+.related-products .swiper-slide a {
+  text-decoration: none;
+  color: black;
+}
+
+.related-products img {
+  width: 100%;
+  aspect-ratio: 5.7/6;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.related-products h4 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+  text-transform: uppercase;
+}

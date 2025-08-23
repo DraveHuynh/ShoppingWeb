@@ -1,0 +1,252 @@
+.cart-view {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 50px 100px;
+  display: flex;
+  gap: 40px;
+}
+
+.scroll-container {
+  flex: 2;
+}
+
+.cart-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 20px 0;
+  align-items: center;
+}
+
+.cart-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.item-info {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.item-info h4 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.item-info p {
+  margin: 4px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+.item-price {
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.item-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+/* Quantity group styling */
+.quantity-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  overflow: hidden;
+  background-color: #fff;
+  height: 40px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quantity-group button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* luôn giữ hình tròn */
+}
+
+.quantity-group button:hover {
+  background-color: rgb(226, 226, 226);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity-group .quantity-number {
+  width: 50px;
+  text-align: center;
+  font-size: 18px;
+  background-color: #fff;
+  border: none; /* xóa border nếu có */
+}
+
+.delete-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eee;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.delete-button:hover {
+  background-color: rgb(230, 55, 55);
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+.summary {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+}
+
+.summary h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.summary p {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+
+.summary button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.summary button:hover {
+  background-color: #333;
+}
+
+#newAddressForm label,
+#addressSelect + label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #333;
+}
+
+#newAddressForm input[type="text"],
+#newAddressForm input[type="tel"],
+#newAddressForm select,
+#addressSelect {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+#newAddressForm input:focus,
+#newAddressForm select:focus,
+#addressSelect:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+#addressSelect {
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.85em;
+  margin-top: 4px;
+}
+
+@media (max-width: 1120px) {
+  .cart-view {
+    display: block;
+    padding: 20px 30px;
+  }
+
+  .scroll-container {
+    height: 480px; /* hoặc max-height nếu muốn co giãn */
+    overflow-y: auto; /* cuộn theo chiều dọc */
+    background: #f9f9f9;
+  }
+}
+
+@media (max-width: 490px) {
+  .cart-view {
+    padding: 20px 0 20px 10px;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .item-info {
+    margin-left: 15px;
+  }
+
+  .item-info h4 {
+    font-size: 15px;
+  }
+
+  .item-info p {
+    font-size: 13px;
+  }
+
+  .item-price {
+    font-size: 15px;
+  }
+
+  /* Quantity group styling */
+  .quantity-group {
+    height: 35px;
+  }
+
+  .quantity-group button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .quantity-group .quantity-number {
+    width: 40px;
+    font-size: 15px;
+  }
+
+  .delete-button {
+    width: 35px;
+    height: 35px;
+  }
+}

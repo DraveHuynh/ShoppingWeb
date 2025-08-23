@@ -1,0 +1,32 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #000;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: #000;
+  text-decoration: underline;
+  display: inline-block;
+  margin: 5px 0;
+}
+
+@media (max-width: 566px) {
+  .footer {
+    display: block;
+  }
+}
