@@ -7,7 +7,6 @@
     <th>Tên khách hàng</th>
     <th>Email</th>
     <th>Số điện thoại</th>
-    <th>Hành động</th>
     </tr>
     <?php
       $customers = getAllCustomers();
@@ -19,11 +18,6 @@
               <td>' . htmlspecialchars($customer['username']) . '</td>
               <td>' . htmlspecialchars($customer['email']) . '</td>
               <td>' . htmlspecialchars($customer['phone_number']) . '</td>
-              <td>
-                  <form method="POST" action="">
-                    <input class="addbtn" type="submit" value="Sửa">
-                  </form>
-              </td>
             </tr>
             ';
           }
