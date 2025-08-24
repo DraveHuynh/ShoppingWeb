@@ -1,17 +1,17 @@
 <?php
 require_once dirname(__DIR__, 2) . '/config/database.php';
 
-function addOrder($khach_hang_id, $dia_chi_id, $tong_tien) {
+function addOrder($khach_hang_id, $dia_chi_id, $tong_tien, $ghi_chu = '') {
     try {
         $conn = connection();
         if (!$conn) {
             throw new Exception("Không thể kết nối CSDL");
         }
 
-        $query = "INSERT INTO don_hang (khach_hang_id, tong_tien, dia_chi_id)
-                  VALUES (?, ?, ?)";
+        $query = "INSERT INTO don_hang (khach_hang_id, tong_tien, dia_chi_id, ghi_chu)
+                  VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($query);
-        $stmt->execute([$khach_hang_id, $tong_tien, $dia_chi_id]);
+        $stmt->execute([$khach_hang_id, $tong_tien, $dia_chi_id, $ghi_chu]);
 
         return $conn->lastInsertId();
     } catch (PDOException $e) {
