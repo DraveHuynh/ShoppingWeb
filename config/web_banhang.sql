@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 01, 2025 lúc 04:37 PM
+-- Thời gian đã tạo: Th8 24, 2025 lúc 07:47 AM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -55,13 +55,6 @@ CREATE TABLE `chi_tiet_don_hang` (
   `thanh_tien` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `chi_tiet_don_hang`
---
-
-INSERT INTO `chi_tiet_don_hang` (`id`, `don_hang_id`, `san_pham_id`, `so_luong`, `don_gia`, `thanh_tien`) VALUES
-(5, 5, 5, 1, 10000000, 10000000);
-
 -- --------------------------------------------------------
 
 --
@@ -72,15 +65,6 @@ CREATE TABLE `danh_muc` (
   `id` int(11) NOT NULL,
   `ten` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `danh_muc`
---
-
-INSERT INTO `danh_muc` (`id`, `ten`) VALUES
-(4, 'Pin'),
-(5, 'Pin1'),
-(6, 'Pin2');
 
 -- --------------------------------------------------------
 
@@ -96,13 +80,6 @@ CREATE TABLE `dia_chi` (
   `sdt` varchar(11) NOT NULL,
   `trang_thai` enum('true','false') NOT NULL DEFAULT 'true'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `dia_chi`
---
-
-INSERT INTO `dia_chi` (`id`, `khach_hang_id`, `so_nha_va_duong`, `quan_id`, `sdt`, `trang_thai`) VALUES
-(14, 4, '999a Nguyễn Duy', 7, '0971873743', 'true');
 
 -- --------------------------------------------------------
 
@@ -121,13 +98,6 @@ CREATE TABLE `don_hang` (
   `dia_chi_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `don_hang`
---
-
-INSERT INTO `don_hang` (`id`, `khach_hang_id`, `tong_tien`, `trang_thai`, `ngay_tao`, `ngay_cap_nhat`, `ghi_chu`, `dia_chi_id`) VALUES
-(5, 4, 10000000, 'Unconfirmed', '2025-06-26 03:34:54', '2025-06-26 03:34:54', '', 14);
-
 -- --------------------------------------------------------
 
 --
@@ -143,13 +113,6 @@ CREATE TABLE `gio_hang` (
   `ngay_cap_nhat` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `trang_thai` enum('in_cart','ordered','removed') NOT NULL DEFAULT 'in_cart'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `gio_hang`
---
-
-INSERT INTO `gio_hang` (`id`, `khach_hang_id`, `san_pham_id`, `so_luong`, `ngay_tao`, `ngay_cap_nhat`, `trang_thai`) VALUES
-(11, 4, 5, 1, '2025-06-26 03:34:30', '2025-06-26 03:34:54', 'ordered');
 
 -- --------------------------------------------------------
 
@@ -257,14 +220,6 @@ CREATE TABLE `san_pham` (
   `trang_thai` enum('0','1') NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Đang đổ dữ liệu cho bảng `san_pham`
---
-
-INSERT INTO `san_pham` (`id`, `ten`, `mo_ta`, `img_url`, `danh_muc_id`, `gia`, `ngay_tao`, `ngay_cap_nhat`, `trang_thai`) VALUES
-(4, 'Pin xe đạp điện', 'Pin chất lượng', '6848f41e21fdd_pin.jpg', 4, 1000000, '2025-06-11 03:12:30', '2025-06-11 03:12:30', '1'),
-(5, 'Pin EVO200', 'Pin EVO chất lượng cao, ứng dụng hỗ trợ xem xét tình trạng', '684bed4eecadd_sp.png', 5, 10000000, '2025-06-13 09:20:14', '2025-06-13 09:20:14', '1');
-
 -- --------------------------------------------------------
 
 --
@@ -277,13 +232,6 @@ CREATE TABLE `showhome` (
   `tieu_de` varchar(100) NOT NULL,
   `danh_muc_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Đang đổ dữ liệu cho bảng `showhome`
---
-
-INSERT INTO `showhome` (`id`, `stt`, `tieu_de`, `danh_muc_id`) VALUES
-(5, 1, 'Khám phá Pin EVO200', 5);
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -375,31 +323,31 @@ ALTER TABLE `banner_img`
 -- AUTO_INCREMENT cho bảng `chi_tiet_don_hang`
 --
 ALTER TABLE `chi_tiet_don_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `danh_muc`
 --
 ALTER TABLE `danh_muc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `dia_chi`
 --
 ALTER TABLE `dia_chi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `don_hang`
 --
 ALTER TABLE `don_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `gio_hang`
 --
 ALTER TABLE `gio_hang`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `hinh_anh_san_pham`
@@ -429,13 +377,13 @@ ALTER TABLE `quan`
 -- AUTO_INCREMENT cho bảng `san_pham`
 --
 ALTER TABLE `san_pham`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `showhome`
 --
 ALTER TABLE `showhome`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
