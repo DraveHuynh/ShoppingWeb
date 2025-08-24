@@ -364,7 +364,8 @@ class CartController {
             header("Location: " . BASE_URL . "/index.php?url=home");
             exit();
         }
-    
+        var_dump($khach_hang_id, $dia_chi_id, $tong_tien, $items_to_pay);
+        exit();
         try {
             // 1. Tạo đơn hàng
             $don_hang_id = addOrder($khach_hang_id, $dia_chi_id, $tong_tien);
